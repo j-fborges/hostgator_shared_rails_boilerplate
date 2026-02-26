@@ -84,18 +84,24 @@ bundle install
 
 Edit config/database.yml to match your MySQL service. The Docker environment provides a MySQL container with these default credentials:
 
->development:
->  adapter: mysql2
->  encoding: utf8
->  database: myapp_development
->  username: myapp_user
->  password: myapp_password
->  host: mysql      # service name from docker-compose
->  port: 3306
+```bash
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: myapp_development
+  username: myapp_user
+  password: myapp_password
+  host: mysql      # service name from docker-compose
+  port: 3306
+```
 
 ### 5. Create and Migrate Database
 
-bash bundle exec rails db:create bundle exec rails db:migrate bundle exec rails db:seed # if you have seed data 
+```bash
+bundle exec rails db:create
+bundle exec rails db:migrate
+bundle exec rails db:seed # if you have seed data
+```
 
 ### 6. Run the Development Server
 
@@ -104,25 +110,6 @@ bundle exec rails s -b 0.0.0.0
 ```
 
 Your app will be accessible from your host machine at http://127.0.0.1:3000.
-
-## 📁 Project Structure
-
-rails_hg/
-├── app/                      # Controllers, models, views, assets
-├── bin/                      # Binstubs for rails, rake, etc.
-├── config/                   # Routes, database, environment configs
-├── db/                       # Migrations, schema, seeds
-├── lib/                      # Custom tasks and modules
-├── public/                   # Static assets (compiled)
-├── test/                     # Test suite
-├── vendor/                   # Third-party assets
-├── Gemfile                   # Gem dependencies
-├── Gemfile.lock              # Locked gem versions
-├── deploy-production.sh      # Full production deployment script
-├── runDevServer.sh           # Quick development server launcher
-├── set-development-mode.sh   # Switch to development environment
-├── set-production-environment.sh # Switch to production
-└── README.md                 # This file
 
 ## 📜 Included Scripts
 
@@ -162,7 +149,9 @@ The primary goal of this boilerplate + Docker environment is to create a deploya
 
 Inside the container, run:
 
+```bash
 ./deploy-production.sh 
+```
 
 This script:
 - Sets RAILS_ENV=production
